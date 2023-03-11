@@ -339,6 +339,54 @@ body {
     font-weight: 500;
     color: #fff;
 }
+/*CAMBIOS RESPONSIVE*/
+.identificacion{
+    display: inline-flex;
+    margin-bottom: 4%;
+    
+}
+select{
+    width: 100px;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid #999999;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.input5[type="text"] {
+    width: 400px;
+    height: 42px;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid #999999;
+    padding: 0.8rem 1.2rem;
+}
+
+.selec-docu{
+    width: 19vh;
+    width: 11vh;
+    border-radius: 15px 0px 0px 15px;       
+}
+.ancho-input{
+    width: 100%;
+    border-radius: 0px 8px 8px 0px;
+}
+
+select:hover{
+    background-color: #eeeeee75;
+    border: 1px solid #0228ff;
+}
+.input5[type="text"]:hover{
+    background-color: #eeeeee75;
+    border: 1px solid #0228ff;
+}
+select:focus-visible {
+    border-color: #0228ff;
+  }
+
+.input5:focus-visible {
+    border-color: #0228ff;
+  }
+/*FIN DE CAMBIOS*/
 
 @media screen and (max-width: 1330px) {
     .form-image {
@@ -376,6 +424,10 @@ body {
     }
     .gender-input {
         margin-top: 0.5rem;
+    }
+
+    @media screen and (max-width: 400px){
+       
     }
 }
 

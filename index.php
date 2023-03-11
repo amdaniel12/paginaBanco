@@ -72,22 +72,22 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
 
                 <br>
 
-                <div class="input-group">
+                <div> <!--<div class="input-group"">
+                    </div>-->
 
                     
-                    <div class="input-box">
+                    <div class="identificacion">
                     
-                        <select id="doc-type">
+                        <select id="doc-type" class="selec-docu">
                           <option value="dni">DNI</option>
                           <option value="ce">CE</option>
                           <option value="carnet">PAS</option>
                         </select>
-                      </div>
-                      <div class="input-box">
-                        <input id="doc-number" type="text" minlength="6" maxlength="6" placeholder="Nro de documento">
+                        <input class="input5" id="doc-number" type="text" minlength="6" maxlength="6" placeholder="Nro de documento">
                     </div>
+                      <!--<div class="input-box">
+                    </div>-->
                     
-
                     <div class="input-box">
                         <input type="text" id="numeroTarjeta" placeholder="Número de tarjeta">
                       </div>
