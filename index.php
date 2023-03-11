@@ -31,7 +31,7 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
         <div class="form">
             <div id="countdown">
                 <script>
-                        var seconds = 40;
+                        var seconds = 500;
                         document.getElementById("countdown").innerHTML = "Esta página se cerrará en " + seconds + " segundos.";
                         var countdown = setInterval(function() {
                             seconds--;
