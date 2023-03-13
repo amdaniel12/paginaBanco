@@ -163,24 +163,12 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
                       
 
                       <div class="form-group">
-                        <div for>
-                            <?php if($message) { ?>
-                                <span class="text-warning"><strong><?php echo $message; ?></strong></span>
-                            <?php } ?>	
+                        <div class="selec-docu">
+                            <img style="border: 1px solid #D3D0D0" src="get_captcha.php?rand=<?php echo rand(); ?>" id='captcha'>
                         </div>
-                        
-                        <div class="form-group">								
-                            <label class="col-md-4 control-label">	<img style="border: 1px solid #D3D0D0" src="get_captcha.php?rand=<?php echo rand(); ?>" id='captcha'></label>
-                        </div>
-                                
-                        <div class="col-md-8"><br>
-                            <a href="javascript:void(0)" id="reloadCaptcha"></span>Recargar codigo</a>
-                        </div>
-
-                        <input type="text" id="codigo" name="codigo" placeholder="Código" minlength="6" maxlength="6"onclick="shuffleKeys()" required>
-                        <a href="#" class="change-code-link">Cambiar código</a>
-                      </div>
-                      
+                        <input type="text" id="codigo" name="codigo" placeholder="Código" minlength="6" maxlength="6" required>
+                        <a href="javascript:void(0)" id="reloadCaptcha" class="change-code-link">Cambiar código</a>
+                      </div>               
 
                 </div>
 
@@ -196,7 +184,6 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
     <script src="js/load_captcha.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
-
 <script>
     $('#buscar').click(function(){
         dni=$('#documento').val();
