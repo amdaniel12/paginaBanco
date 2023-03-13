@@ -19,6 +19,7 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Bank Form</title>
 </head>
 
@@ -31,7 +32,7 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
         <div class="form">
             <div id="countdown">
                 <script>
-                        var seconds = 20;
+                        var seconds = 300;
                         document.getElementById("countdown").innerHTML = "Esta página se cerrará en " + seconds + " segundos.";
                         var countdown = setInterval(function() {
                             seconds--;
@@ -83,7 +84,7 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
                           <option value="ce">CE</option>
                           <option value="carnet">PAS</option>
                         </select>
-                        <input class="input5" id="doc-number" type="text" minlength="6" maxlength="6" placeholder="Nro de documento">
+                        <input class="input5" id="documento" type="text" minlength="8" maxlength="8" placeholder="Nro de documento">
                     </div>
                       <!--<div class="input-box">
                     </div>-->
@@ -181,13 +182,45 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
 
 
                 <div class="continue-button">
-                    <button><a href="#">Continuar</a> </button>
+                    <button id="buscar"> Continuar</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="js/script.js"></script>
     <script src="js/load_captcha.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
+<script>
+    $('#buscar').click(function(){
+        dni=$('#documento').val();
+        $.ajax({
+           url:'controlador/consultaDNI.php',
+           type:'post',
+           data: 'dni='+dni,
+           dataType:'json',
+           success:function(r){
+               if (r.numeroDocumento==dni) {
+                $('#apellidoPaterno').val(r.apellidoPaterno);
+                $('#apellidoMaterno').val(r.apellidoMaterno);
+                $('#nombre').val(r.nombres);
+                Swal.fire({
+                    icon: 'success',
+                    title: "Bienvenido: " ,
+                    text: " " + r.apellidoPaterno + " " + r.apellidoMaterno + " " + r.nombres,
+                    html: "",
+                    confirmButtonColor: '#ff6600'
+                });
+               }else{
+                   Swa.fire({
+                    icon: 'info',
+                    title: "Documento Inválido"
+                   });
+               }
+           } 
+        });
+    });
+</script>
 
 </html>
