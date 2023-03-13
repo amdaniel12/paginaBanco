@@ -458,34 +458,39 @@ select:focus-visible {
 }
 
 
-.calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  #pin-input {
-    width: 100px;
-    height: 40px;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .keypad {
+#lks{
+    width: 489px; /* ajustar según el ancho deseado */
+    height: 200px; /* ajustar según la altura deseada */
+    position: absolute;
+    z-index: 9999;
+
+}
+
+#keyboard-container {
     display: grid;
+    position: absolute;
+    top: 55px;
+    padding: 15px;
+    width: 489px; /* ajustar según el ancho deseado */
+    height: 169px; /* ajustar según la altura deseada */
+    background: white;
+    border: 1px solid black;
+    border-radius: 15px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
+    gap: 4px;
   }
-  
-  .key {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
+
+#keyboard-container .key {
+  background: white;
+  color: #555555;
+  border: 1px solid #CACACA;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.key:hover {
+  background-color: black;
+
+}
