@@ -489,8 +489,3 @@ select:focus-visible {
     cursor: pointer;
   }
   
-  .key:hover {
-    background-color: white;
-    color: red;
-  }
-  
